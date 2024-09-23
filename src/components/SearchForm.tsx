@@ -1,4 +1,9 @@
-export default function SearchForm() {
+type SearchFormPropTypes = {
+  searchText:string;
+  onChange: (e:React.ChangeEvent<HTMLInputElement>) => void;
+}
+export default function SearchForm({searchText, onChange}: SearchFormPropTypes) {
+
   return (
     <form action="#" className="search">
       <button type="submit">
@@ -10,6 +15,8 @@ export default function SearchForm() {
         type="text"
         required
         placeholder="Find remote developer jobs..."
+        value={searchText}
+        onChange={(e)=>onChange(e)}
       />
     </form>
   );
