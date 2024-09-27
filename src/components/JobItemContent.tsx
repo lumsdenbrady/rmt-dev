@@ -1,8 +1,11 @@
+import { jobItemBasic } from "../types";
 import BookmarkIcon from "./BookmarkIcon";
 
-export default function JobItemContent() {
+export default function JobItemContent({item}:{item:jobItemBasic|null}) {
   
   return (
+    !item ? (<EmptyJobContent />) : 
+      (
     <section className="job-details">
       <div>
         <img
@@ -90,6 +93,7 @@ export default function JobItemContent() {
         </footer>
       </div>
     </section>
+    )
   );
 }
 
